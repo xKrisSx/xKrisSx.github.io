@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gra</title>
+    <script src="scripts/script.js"></script>
+    <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+</head>
+<body id="body" onload="load()">
+<div id="background"></div>
+<div id="container">
+    <div id="namecontainer">
+        <input type="text" class="nameInput medsmaller" id="nameInput" oninput="validate('input')">
+        <div id="playernameinputdivxd" class="med">Gracz #<span id="playernamescount">1</span> <button id="addplayer" onclick="validate('add')">✓</button></div><br>
+    </div>
+    <div id="gamecontainer">
+    </div>
+</div>
+<div id="log" class="small red"></div>
+<div></div>
+</body>
+</html>

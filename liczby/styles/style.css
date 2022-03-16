@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+#background {
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-size: cover;
+    object-fit: cover;
+    z-index: -50;
+    height: 100vh;
+    background-image: url("../images/paper.jpg");
+}
+
+#title {
+    font-family: 'Architects Daughter', cursive;
+    position: fixed;
+    font-size: 100px;
+    top: calc(20%);
+    left: calc(50% - 358px);
+}
+
+.big {
+    font-family: 'Lilita One', cursive;
+    font-size: 100px;
+}
+
+.med {
+    font-family: 'Lilita One', cursive;
+    font-size: 35px;
+}
+
+.medsmaller {
+    font-family: 'Lilita One', cursive;
+    font-size: 28px;
+}
+
+.small {
+    font-family: 'Lilita One', cursive;
+    font-size: 15px;
+}
+
+.red {
+    color: #b00;
+}
+.green {
+    color: #090;
+}
+.center {
+    text-align: center;
+}
+
+#rules {
+    position: fixed;
+    top: calc(55%);
+    left: calc(70%);
+    width: 450px;
+}
+
+#bottom {
+    position: fixed;
+    top: calc(100% - 37px);
+    left: calc(100% - 180px);
+    width: 180px;
+    height: 37px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+#trybgryxd {
+    position: fixed;
+    top: calc(55%);
+    left: calc(20%);
+    width: 350px;
+    text-align: center;
+}
+
+#gamemode {
+    border: 5px outset #000000;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #ddd;
+    height: 40px;
+    width: 125px;
+}
+
+#gamemode:hover {
+    background-color: #ccc;
+}
+#gamemode:active {
+    background-color: #bbb;
+}
+
+
+#play {
+    position: fixed;
+    top: calc(50%);
+    left: calc(50% - 124px);
+    border: 5px outset #000000;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #ddd;
+}
+
+#play:hover {
+    background-color: #ccc;
+}
+
+#play:active {
+    background-color: #bbb;
+}
+
+
+#playercount {
+    position: fixed;
+    top: calc(50% + 150px);
+    left: calc(50% - 60px);
+    width: 120px;
+
+}
+#playeramount {
+    position: fixed;
+    top: calc(50% + 170px);
+    left: calc(50% - 105px);
+}
+
+#numbercount {
+    position: fixed;
+    top: calc(50% + 250px);
+    left: calc(50% - 60px);
+    width: 120px;
+
+}
+#size {
+    position: fixed;
+    top: calc(50% + 270px);
+    left: calc(50% - 85px);
+}
+
+#nameInput {
+    border: 5px outset #000000;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #ddd;
+    height: 40px;
+    width: 320px;
+    text-align: center;
+}
+
+#container {
+    position: fixed;
+    top: calc(75%);
+    left: calc(50% - 167px);
+    text-align: center;
+}
+
+#addplayer {
+    position: relative;
+    border: 2px outset #090;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #9f9;
+    height: 27px;
+    width: 27px;
+    font-size: 17px;
+    text-align: center;
+    top: -4px;
+    left: 6px;
+}
+
+#addplayer:hover {
+    background-color: #8e8;
+}
+#addplayer:active {
+    background-color: #7d7;
+}
+
+#gamecontainer {
+    position: fixed;
+    width: 100vw;
+    height: 75vh;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.playercontainer {
+    border-right: 5px solid #000;
+    border-left: 5px solid #000;
+    text-align: left;
+    height: calc(75vh);
+    margin: 10px;
+    display: inline-table;
+}
+
+.scroll {
+    height: 87%;
+    overflow-y: auto;
+}
+
+.w1 {
+    width: calc((100% / 1) - 40px);
+}
+.w2 {
+    width: calc((100% / 2) - 40px);
+}
+.w3 {
+    width: calc((100% / 3) - 40px);
+}
+.w4 {
+    width: calc((100% / 4) - 40px);
+}
+.w5 {
+    width: calc((100% / 5) - 40px);
+}
+.w6 {
+    width: calc((100% / 6) - 40px);
+}
+.w7 {
+    width: calc((100% / 7) - 40px);
+}
+.w8 {
+    width: calc((100% / 8) - 40px);
+}
+
+#numberInput {
+    position: fixed;
+    top: 80%;
+    left: calc(50% - 120px);
+    border: 5px outset #000000;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #ddd;
+    height: 40px;
+    width: 240px;
+    text-align: center;
+}
+
+#numberdivinfo {
+    position: fixed;
+    width: 100%;
+    top: calc(80% + 50px);
+    left: 0;
+}
+
+#numberbutton {
+    position: relative;
+    border: 2px outset #090;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #9f9;
+    height: 27px;
+    width: 27px;
+    font-size: 17px;
+    text-align: center;
+    top: -5px;
+    left: 6px;
+}
+
+#numberbutton:hover {
+    background-color: #8e8;
+}
+#numberbutton:active {
+    background-color: #7d7;
+}
+
+#log {
+    width: 400px;
+    position: fixed;
+    top: 97%;
+    left: calc(50% - 200px);
+    text-align: center;
+}
+
+#greenScreen {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 255, 0, 0.5);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#gameOverText {
+    text-align: center;
+    position: fixed;
+    top: calc(50% - 250px);
+    left: calc(50% - 400px);
+    z-index: 1000;
+    height: 160px;
+    width: 800px;
+}
+
+#restartGame {
+    position: fixed;
+    top: calc(50%);
+    left: calc(50% - 100px);
+    z-index: 1000;
+    height: 100px;
+    width: 200px;
+    cursor: grab;
+    border: 2px outset #090;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #9f9;
+}
+
+#restartGame:hover {
+    border: 2px outset #090;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #8e8;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Tło */
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.25);
+}
+
+/* Pasek */
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(0deg, rgba(196, 29, 29, 0.85) 25%, rgba(229, 60, 60, 0.85) 75%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(0deg, rgba(255, 37, 37, 0.85) 25%, rgba(255, 88, 88, 0.85) 75%);
+}

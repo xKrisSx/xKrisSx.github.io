@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu główne</title>
+    <script src="scripts/script.js"></script>
+    <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+</head>
+<body onload="color()">
+<div id="background"></div>
+<div id="title">
+    GRA W LICZBY
+</div>
+
+<button id="play" class="big" onclick="play(); playSound(`pop`)"> GRAJ </button>
+
+<input type="range" id="playercount" min="1" max="8" value="1" oninput="showAmount(this.value, `amount`)" onchange="showAmount(this.value, `amount`)">
+<div id="playeramount" class="med">Ilosc graczy: <span id="amount">1</span></div>
+
+<input type="range" id="numbercount" min="1" max="9" value="3" oninput="showAmount(this.value, `numbersize`)" onchange="showAmount(this.value, `numbersize`)">
+<div id="size" class="med">Ilosc cyfr: <span id="numbersize">3</span></div>
+
+<div id="trybgryxd" class="med">
+    Tryb gry:<br>
+    <button id="gamemode" onclick="switchGamemode(); playSound(`pop`)" class="small">Kazdy osobno</button>
+</div>
+
+<div id="rules" class="small">
+    <div class="center">ZASADY:<br></div>
+    - Na poczatku gry, dla kazdego gracza losowana jest <span id="rules-amount">3</span>-cyfrowa liczba<br>
+    - Cyfry nie moga sie powtarzac<br>
+    - 0 (zero) nie wystepuje w liczbie (tylko 1-9)<br>
+    - Prawidlowa cyfra na <span class="red">niewlasciwym</span> miejscu = 1 punkt<br>
+    - Prawidlowa cyfra na <span class="green">wlasciwym</span> miejscu = 2 punkty<br>
+    - Wygrywa ten, kto zgadnie liczbe<br>
+</div>
+<div class="small" id="bottom" onclick="window.open(`https://github.com/xKrisSx`)">
+    <div>
+    Tworca: Kris (Krystian K.)<br>
+    Wersja: 1.0
+    </div>
+</div>
+</body>
+</html>
