@@ -6,6 +6,7 @@ let n1 = 0;
 let table = []
 let names = []
 let win = []
+let end;
 let gamemodes = ["Kazdy osobno"]
 let colors = [
     "rgba(255,0  ,0  ,0.25)",
@@ -84,14 +85,17 @@ function load() {
     }
     document.getElementById("nameInput").focus()
     document.addEventListener('keyup', (e) => {
-        if (e.code === "Enter") {
-            if (document.getElementById("numberInput") !== null) {
-                submitnumber()
-            } else if (document.getElementById("nameInput") !== null) {
-                validate("add")
+        if (!end) {
+            if (e.code === "Enter") {
+                if (document.getElementById("numberInput") !== null) {
+                    submitnumber()
+                } else if (document.getElementById("nameInput") !== null) {
+                    validate("add")
+                }
             }
         }
     });
+    end = false;
 }
 
 let regex = /^[a-zA-Z0-9]+$/
@@ -99,56 +103,58 @@ let numberregex = /^\d+$/
 let numberregex2 = /^[1-9]+$/
 
 function validate(type) {
-    let val = document.getElementById("nameInput").value
-    switch (type) {
-        case "add":
-            playSound("pop")
-            if (val.length === 0) {
-                log("red", "Nazwa nie moze byc pusta!")
+    if (!end) {
+        let val = document.getElementById("nameInput").value
+        switch (type) {
+            case "add":
+                playSound("pop")
+                if (val.length === 0) {
+                    log("red", "Nazwa nie moze byc pusta!")
+                    break
+                }
+                if (val.length < 3) {
+                    log("red", "Ta nazwa jest zbyt krotka!")
+                    break
+                }
+                if (val.length > 12) {
+                    document.getElementById("nameInput").value = document.getElementById("nameInput").value.substring(0, 12);
+                    log("red", "Osiagnieto limit znakow! (12)")
+                    break
+                }
+                if (!regex.test(val)) {
+                    document.getElementById("nameInput").value = document.getElementById("nameInput").value.substring(0, val.length - 1);
+                    log("red", "Ten znak jest niedozwolony! (" + val[val.length - 1] + ")")
+                    break
+                }
+                log("red", "")
+                if (names.includes(val)) {
+                    log("red", "Ta nazwa juz wystepuje!")
+                    break
+                }
+                names.push(val)
+                if (names.length === get("p")) {
+                    document.getElementById("namecontainer").remove()
+                    createDivs(get("p"))
+                } else {
+                    document.getElementById("nameInput").value = ""
+                    document.getElementById("playernamescount").innerText = (names.length + 1).toString()
+                    log("green", "Dodano gracza #" + names.length + ": " + val)
+                }
                 break
-            }
-            if (val.length < 3) {
-                log("red", "Ta nazwa jest zbyt krotka!")
+            case "input":
+                playSound("key")
+                if (val.length > 12) {
+                    document.getElementById("nameInput").value = document.getElementById("nameInput").value.substring(0, 12);
+                    log("red", "Osiagnieto limit znakow! (12)")
+                    break
+                }
+                if (!regex.test(val)) {
+                    document.getElementById("nameInput").value = document.getElementById("nameInput").value.substring(0, val.length - 1);
+                    log("red", "Ten znak jest niedozwolony! (" + val[val.length - 1] + ")")
+                    break
+                }
                 break
-            }
-            if (val.length > 12) {
-                document.getElementById("nameInput").value = document.getElementById("nameInput").value.substring(0, 12);
-                log("red", "Osiagnieto limit znakow! (12)")
-                break
-            }
-            if (!regex.test(val)) {
-                document.getElementById("nameInput").value = document.getElementById("nameInput").value.substring(0, val.length - 1);
-                log("red", "Ten znak jest niedozwolony! (" + val[val.length - 1] + ")")
-                break
-            }
-            log("red", "")
-            if (names.includes(val)) {
-                log("red", "Ta nazwa juz wystepuje!")
-                break
-            }
-            names.push(val)
-            if (names.length === get("p")) {
-                document.getElementById("namecontainer").remove()
-                createDivs(get("p"))
-            } else {
-                document.getElementById("nameInput").value = ""
-                document.getElementById("playernamescount").innerText = (names.length + 1).toString()
-                log("green", "Dodano gracza #" + names.length + ": " + val)
-            }
-            break
-        case "input":
-            playSound("key")
-            if (val.length > 12) {
-                document.getElementById("nameInput").value = document.getElementById("nameInput").value.substring(0, 12);
-                log("red", "Osiagnieto limit znakow! (12)")
-                break
-            }
-            if (!regex.test(val)) {
-                document.getElementById("nameInput").value = document.getElementById("nameInput").value.substring(0, val.length - 1);
-                log("red", "Ten znak jest niedozwolony! (" + val[val.length - 1] + ")")
-                break
-            }
-            break
+        }
     }
 }
 
@@ -221,109 +227,112 @@ function createDivs(amount) {
 let iteration = 0;
 
 function submitnumber() {
+    if (!end) {
 
-    document.getElementById("numberInput").focus()
+        document.getElementById("numberInput").focus()
 
-    playSound("pop")
-    let num = document.getElementById("numberInput").value
+        playSound("pop")
+        let num = document.getElementById("numberInput").value
 
-    if (num.length > get("s")) {
-        log("red", "Liczba jest zbyt dluga! Maksymalna dlugosc: " + get("s"))
-        return
-    }
+        if (num.length > get("s")) {
+            log("red", "Liczba jest zbyt dluga! Maksymalna dlugosc: " + get("s"))
+            return
+        }
 
-    if (num.length < get("s")) {
-        log("red", "Liczba jest zbyt krotka! Wymagana dlugosc: " + get("s"))
-        return;
-    }
-
-    if (!numberregex.test(num)) {
-        log("red", "To nie jest liczba!")
-        return;
-    }
-
-    if (!numberregex2.test(num)) {
-        log("red", "Liczba nie moze zawierac zera!")
-        return;
-    }
-
-    let numtable = num.split("")
-    let points = 0
-
-    let numbers = []
-
-    for (let i = 0; i < numtable.length; i++) {
-        if (!numbers.includes(numtable[i])) {
-            numbers.push(numtable[i])
-        } else {
-            log("red", "Cyfry nie moga sie powtarzac!")
+        if (num.length < get("s")) {
+            log("red", "Liczba jest zbyt krotka! Wymagana dlugosc: " + get("s"))
             return;
         }
-    }
 
-    for (let i = 0; i < numtable.length; i++) {
-        numtable.forEach(n => {
-            if (table[iteration][i].toString().includes(n.toString())) {
+        if (!numberregex.test(num)) {
+            log("red", "To nie jest liczba!")
+            return;
+        }
+
+        if (!numberregex2.test(num)) {
+            log("red", "Liczba nie moze zawierac zera!")
+            return;
+        }
+
+        let numtable = num.split("")
+        let points = 0
+
+        let numbers = []
+
+        for (let i = 0; i < numtable.length; i++) {
+            if (!numbers.includes(numtable[i])) {
+                numbers.push(numtable[i])
+            } else {
+                log("red", "Cyfry nie moga sie powtarzac!")
+                return;
+            }
+        }
+
+        for (let i = 0; i < numtable.length; i++) {
+            numtable.forEach(n => {
+                if (table[iteration][i].toString().includes(n.toString())) {
+                    points += 1
+                }
+            })
+            if (numtable[i].toString() === table[iteration][i].toString()) {
                 points += 1
             }
-        })
-        if (numtable[i].toString() === table[iteration][i].toString()) {
-            points += 1
         }
-    }
 
-    if (table[iteration].toString().replaceAll(",", "") === num.toString()) {
-        win[iteration] = true
-    }
+        if (table[iteration].toString().replaceAll(",", "") === num.toString()) {
+            win[iteration] = true
+        }
 
-    document.getElementById("numberInput").value = ""
-    if (win[iteration]) {
-        document.getElementById("p" + iteration).innerHTML += "<br><span class='green'>" + num + "</span><br>Ilosc prob: " + (document.getElementById("p" + iteration).getElementsByTagName("br").length + 1)
-    } else {
-        document.getElementById("p" + iteration).innerHTML += "<br>" + num + " - " + points + "p"
-    }
-    log("green", "Gracz: " + names[iteration] + ", Liczba: " + num)
-
-    if (iteration + 1 === names.length) {
-        iteration = 0
-    } else {
-        iteration++
-    }
-    for (let i = iteration; i < names.length + iteration + 1; i++) {
+        document.getElementById("numberInput").value = ""
         if (win[iteration]) {
-            if (iteration + 1 === names.length) {
-                iteration = 0
-            } else {
-                iteration++
-            }
+            document.getElementById("p" + iteration).innerHTML += "<br><span class='green'>" + num + "</span><br>Ilosc prob: " + (document.getElementById("p" + iteration).getElementsByTagName("br").length + 1)
         } else {
-            break
+            document.getElementById("p" + iteration).innerHTML += "<br>" + num + " - " + points + "p"
         }
-    }
-    let j = 0;
-    win.forEach(n => {
-        if (n) {
-            j++
-        }
-    })
-    if (j === win.length) {
-        let div = document.createElement("div")
-        div.id = "greenScreen"
-        document.getElementById("body").appendChild(div)
+        log("green", "Gracz: " + names[iteration] + ", Liczba: " + num)
 
-        let text = document.createElement("div")
-        text.innerHTML = "<span class='big'>Wszyscy wygrali!</span><br><span class='medsmaller'>Kliknij przycisk ponizej, aby wrocic do menu</span>"
-        text.id = "gameOverText"
-        document.getElementById("body").appendChild(text)
-
-        let btn = document.createElement("button")
-        btn.id = "restartGame"
-        btn.classList.add("medsmaller")
-        btn.innerText = "Menu"
-        btn.onclick = function goToMenu() {
-            window.close()
+        if (iteration + 1 === names.length) {
+            iteration = 0
+        } else {
+            iteration++
         }
-        document.getElementById('body').appendChild(btn);
+        for (let i = iteration; i < names.length + iteration + 1; i++) {
+            if (win[iteration]) {
+                if (iteration + 1 === names.length) {
+                    iteration = 0
+                } else {
+                    iteration++
+                }
+            } else {
+                break
+            }
+        }
+        let j = 0;
+        win.forEach(n => {
+            if (n) {
+                j++
+            }
+        })
+        if (j === win.length) {
+            end = true
+            let div = document.createElement("div")
+            div.id = "greenScreen"
+            document.getElementById("body").appendChild(div)
+
+            let text = document.createElement("div")
+            text.innerHTML = "<span class='big'>Wszyscy wygrali!</span><br><span class='medsmaller'>Kliknij przycisk ponizej, aby wrocic do menu</span>"
+            text.id = "gameOverText"
+            document.getElementById("body").appendChild(text)
+
+            let btn = document.createElement("button")
+            btn.id = "restartGame"
+            btn.classList.add("medsmaller")
+            btn.innerText = "Menu"
+            btn.onclick = function goToMenu() {
+                window.close()
+            }
+            document.getElementById('body').appendChild(btn);
+        }
+        document.getElementById("playernamespan").innerText = names[iteration] + " (#" + (iteration + 1) + ")"
     }
-    document.getElementById("playernamespan").innerText = names[iteration] + " (#" + (iteration + 1) + ")"
 }
