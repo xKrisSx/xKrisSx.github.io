@@ -315,6 +315,7 @@ function submitnumber() {
         })
         if (j === win.length) {
             end = true
+            document.getElementById("numberInput").blur()
             let div = document.createElement("div")
             div.id = "greenScreen"
             document.getElementById("body").appendChild(div)
