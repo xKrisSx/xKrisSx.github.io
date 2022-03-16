@@ -11,13 +11,23 @@ body, html {
 }
 
 #main {
-    position: fixed;
-    top: calc(50% - 128px);
-    left: calc(50% - 128px);
-    z-index: 5;
     font-family: panton, serif;
     font-size: 80px;
     color: #fff;
+}
+
+#kris {
+    z-index: 5;
+    position: fixed;
+    top: calc(50% - 128px);
+    left: calc(50% - 128px);
+}
+
+#git {
+    z-index: 5;
+    position: fixed;
+    top: calc(50% - 64px);
+    left: calc(50% - 264px);
 }
 
 #liczby {
