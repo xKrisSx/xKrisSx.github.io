@@ -1,0 +1,58 @@
+@font-face {
+    font-family: "Panton";
+    src: url(../fonts/Panton-LightCaps.otf) format("opentype");
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+    background-color: #000;
+}
+
+#main {
+    position: fixed;
+    top: calc(50% - 128px);
+    left: calc(50% - 128px);
+    z-index: 5;
+    font-family: panton, serif;
+    font-size: 80px;
+    color: #fff;
+}
+
+#liczby {
+    position: fixed;
+    top: calc(100% - 24px);
+    left: 0;
+    font-family: panton, serif;
+    color: #fff;
+    font-size: 20px;
+    z-index: 6;
+}
+
+#background-video {
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    filter: blur(5px);
+    z-index: 1;
+}
+
+#background {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+a {
+    color: #fff;
+}
+a:visited {
+    color: #fff;
+}
