@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Mine of Three Rules</title>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/alerts.js"></script>
+    <script src="scripts/sounds.js"></script>
+    <script src="scripts/shop.js"></script>
+    <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+</head>
+<body id="body" onload="autoclick()">
+<div id="main">
+    <div id="mineralDiv">
+        <img src="images/minerals/kamien-1.png" id="mineral" onclick="clickEvent(false)">
+    </div>
+    <div id="pickaxeDiv">
+        <img src="images/pickaxes/pick0.png" id="pickaxe">
+    </div>
+</div>
+<div id="shop">
+    <div class="divShopItem">
+        <img src="images/pickaxes/pick1.png" class="shopItem" id="pickaxe1" onclick="shop(1, 100)"><br>100
+    </div>
+    <div class="divShopItem">
+        <img src="images/pickaxes/pick2.png" class="shopItem" id="pickaxe2" onclick="shop(2, 750)"><br>750
+    </div>
+    <div class="divShopItem">
+        <img src="images/pickaxes/pick3.png" class="shopItem" id="pickaxe3" onclick="shop(3, 3250)"><br>3250
+    </div>
+    <div class="divShopItem">
+        <img src="images/pickaxes/pick4.png" class="shopItem" id="pickaxe4" onclick="shop(4, 10000)"><br>10000
+    </div>
+    <div class="divShopItem">
+        <img src="images/pickaxes/pick5.png" class="shopItem" id="pickaxe5" onclick="shop(5, 27500)"><br>27500
+    </div>
+    <div class="break">
+        &nbsp;
+    </div>
+    <div class="divShopItem">
+        <img src="images/other/mineupgrade.png" class="shopItem" id="multi1" onclick="shop(101, 75)"><br><div id="mineUpgrade">75</div>
+    </div>
+    <div class="divShopItem">
+        <img src="images/other/pickupgrade.png" class="shopItem" id="multi2" onclick="shop(102, 75)"><br><div id="pickUpgrade">75</div>
+    </div>
+    <div class="divShopItem">
+        <img src="images/other/coinupgrade.png" class="shopItem" id="multi3" onclick="shop(103, 75)"><br><div id="coinUpgrade">75</div>
+    </div>
+    <div class="divShopItem">
+        <img src="images/other/autoclick.png" class="shopItem" id="multi4" onclick="shop(104, 100)"><br><div id="autoUpgrade">100</div>
+    </div>
+    <div class="break">
+        &nbsp;
+    </div>
+    <div class="divShopItem">
+        <img src="images/other/chlebus.png" class="shopItem" id="energy1" onclick="shop(301, 5)"><br><div id="chlebek">5</div>
+    </div>
+    <div class="divShopItem">
+        <img src="images/other/batonik.png" class="shopItem" id="energy2" onclick="shop(302, 20)"><br><div id="batonik">20</div>
+    </div>
+    <div class="divShopItem">
+        <img src="images/other/colka.png" class="shopItem" id="energy3" onclick="shop(303, 45)"><br><div id="colka">45</div>
+    </div>
+        <div class="break">
+            &nbsp;
+        </div>
+
+</div>
+<div id="list">
+    <div class="divListItem">
+        <img src="images/other/mineupgrade.png" class="listItem"><div id="mineAmount">+0</div>
+    </div>
+    <div class="divListItem">
+        <img src="images/other/pickupgrade.png" class="listItem"><div id="pickAmount">x1</div>
+    </div>
+    <div class="divListItem">
+        <img src="images/other/coinupgrade.png" class="listItem"><div id="coinAmount">x1</div>
+    </div>
+    <div class="divListItem">
+        <img src="images/other/autoclick.png" class="listItem"><br><div id="autoAmount">x0</div>
+    </div>
+</div>
+<div id="hp">HP: 8</div>
+<div id="hpBarContainer"><div id="hpBar"></div></div>
+<div id="console"><p id="consoleOut">Rozpoczeto gre</p>></div>
+<div id="mineralName">Kamien</div>
+<div id="coinsCount"><img src="images/other/coins.gif" height="24px" style="margin: -6px 5px">0</div>
+<div id="energy">Energia: 150</div>
+<div id="energyBarContainer"><div id="energyBar"></div></div>
+<div id="bottom">&nbsp;</div>
+</body>
+</html>

@@ -39,6 +39,15 @@ body, html {
     font-size: 20px;
     z-index: 6;
 }
+#clicker {
+    position: fixed;
+    top: calc(100% - 24px);
+    left: 130px;
+    font-family: panton, serif;
+    color: #fff;
+    font-size: 20px;
+    z-index: 6;
+}
 
 #background-video {
     position: fixed;

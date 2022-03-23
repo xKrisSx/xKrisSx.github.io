@@ -1,0 +1,323 @@
+@font-face {
+    font-family: "Thaleah";
+    src: url("../fonts/ThaleahFat.ttf") format("truetype");
+}
+
+body, html {
+    height: 100%;
+    font-family: Thaleah, serif;
+    font-size: xx-large;
+    background-image: url("../images/other/bg.png");
+    background-size: cover;
+    margin: 0;
+}
+
+.break {
+    font-size: xx-small;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    background-size: 100%;
+    -webkit-text-fill-color: rgba(255, 0, 0, 0.35);
+    z-index: 0;
+}
+
+#main {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#pickaxe {
+    position:fixed;
+    top:calc(50% - 96px);
+    left:calc(50% - 222px);
+    width: 128px;
+    height: 128px;
+    transform: rotate(-90deg);
+}
+
+#mineral {
+    position:fixed;
+    top:calc(50% - 128px);
+    left:calc(50% - 128px);
+    width: 256px;
+    height: 256px;
+}
+
+#mineral:hover {
+    position:fixed;
+    top:calc(50% - 118px);
+    left:calc(50% - 118px);
+    width: 236px;
+    height: 236px;
+}
+
+#mineral:active {
+    position:fixed;
+    top:calc(50% - 113px);
+    left:calc(50% - 113px);
+    width: 226px;
+    height: 226px;
+}
+
+#mineralName {
+    text-align: center;
+    position: fixed;
+    top: calc(50% + 108px);
+    left: calc(50% - 128px);
+    width: 256px;
+}
+
+#hp {
+    text-align: center;
+    position: fixed;
+    top: calc(50% + 130px);
+    left: calc(50% - 128px);
+    width: 256px;
+    z-index: 5;
+}
+
+#hpBar {
+    text-align: left;
+    position: fixed;
+    top: calc(50% + 134px);
+    left: calc(50% - 128px);
+    width: 256px;
+    height: 24px;
+    background-color: rgba(0,255,0,0.75);
+    z-index: 4;
+    transition: 0.1s ease-in;
+}
+
+#hpBarContainer {
+    text-align: left;
+    position: fixed;
+    top: calc(50% + 134px);
+    left: calc(50% - 128px);
+    width: 256px;
+    height: 24px;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 3;
+}
+
+#coinsCount {
+    position: fixed;
+    color: #ffffff;
+    text-align: center;
+    top: calc(100% - 38px);
+    width: 256px;
+    z-index: 1;
+}
+
+#start {
+    position: fixed;
+    top: calc(50% - 64px);
+    left: calc(50% - 192px);
+    z-index: 2;
+    height: 128px;
+    width: 384px;
+    cursor: grab;
+}
+
+#start:hover {
+    position:fixed;
+    top:calc(50% - 60px);
+    left:calc(50% - 186px);
+    height: 120px;
+    width: 372px;
+}
+
+#autorzy {
+    position: fixed;
+    top: calc(100% - 32px);
+    left: 0;
+    text-align: center;
+    height: 32px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#logo {
+    position: fixed;
+    top: calc(10%);
+    width: 480px;
+    left: calc(50% - 240px);
+}
+
+#energy {
+    position: fixed;
+    text-align: center;
+    color: #ffffff;
+    top: calc(100% - 38px);
+    left: calc(100% - 256px);
+    width: 256px;
+    z-index: 5;
+}
+
+#energyBar {
+    text-align: left;
+    position: fixed;
+    top: calc(100% - 44px);
+    left: calc(100% - 265px);
+    width: 266px;
+    height: 44px;
+    background-color: rgba(0,255,0,0.75);
+    z-index: 4;
+    transition: 0.1s ease-in;
+}
+
+#energyContainer {
+    text-align: left;
+    position: fixed;
+    top: calc(100% - 44px);
+    left: calc(100% - 265px);
+    width: 266px;
+    height: 44px;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 3;
+}
+
+#shop {
+    background-color: rgba(15,15,15,0.5);
+    height: calc(100vh - 44px);
+    width: 266px;
+    position: fixed;
+    left: calc(100% - 265px);
+    top: 0;
+    z-index: 5;
+}
+
+#rules {
+    position: fixed;
+    top: calc(50% + 96px);
+    left: calc(50% - 256px);
+    text-align: center;
+    height: 32px;
+    width: 512px;
+}
+
+.divShopItem {
+    display: inline-block;
+    width: 56px;
+    height: 80px;
+    margin: 12px;
+    text-align: center;
+}
+
+#list {
+    background-color: rgba(15,15,15,0.5);
+    height: calc(100vh - 44px);
+    width: 96px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 5;
+}
+
+.listItem {
+    display: inline-block;
+    height: 48px;
+    margin: 12px;
+    text-align: center;
+}
+
+.divListItem {
+    display: inline-block;
+    width: 56px;
+    height: 80px;
+    margin: 12px;
+    text-align: center;
+}
+
+.shopItem {
+    cursor: grab;
+    height: 48px;
+    width: 48px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+#bottom {
+    background-color: rgba(15,15,15,0.5);
+    height: 44px;
+    width: 100%;
+    position: fixed;
+    top: calc(100% - 44px);
+    left: 0;
+}
+
+#console {
+    text-align: center;
+    background-color: rgba(15,15,15,0.5);
+    height: 44px;
+    width: 680px;
+    position: fixed;
+    top: calc(100% - 44px);
+    left: calc(50% - 340px);
+    font-size: x-large;
+    color: #ffffff;
+}
+
+#redScreen {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(196, 0, 0, 0.5);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#greenScreen {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 255, 0, 0.5);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#restartGame {
+     position: fixed;
+     top: calc(50% - 64px);
+     left: calc(50% - 192px);
+     z-index: 1000;
+     height: 128px;
+     width: 384px;
+     cursor: grab;
+ }
+
+#gameOverText {
+    text-align: center;
+    position: fixed;
+    top: calc(50% - 200px);
+    left: calc(50% - 300px);
+    z-index: 1000;
+    height: 160px;
+    width: 600px;
+}
+
+#restartGame:hover {
+    position:fixed;
+    top:calc(50% - 60px);
+    left:calc(50% - 186px);
+    height: 120px;
+    width: 372px;
+}
+
+#consoleOut {
+    margin-top: 12px;
+}
+
+.cheat {
+    background-color: rgba(255,0,0,0.5);
+}
+
+@keyframes pick {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}
