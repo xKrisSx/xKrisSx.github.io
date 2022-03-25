@@ -1,5 +1,6 @@
 let players;
 let gamemode;
+let hex;
 let gamemodeIndex;
 let size;
 let n1 = 0;
@@ -19,14 +20,45 @@ let colors = [
     "rgba(0  ,0  ,0  ,0.25)"
 ]
 
-function createNumber(length, amount) {
+function createNumber(length, amount, hexy) {
     table = []
     for (let i = 0; i < amount; i++) {
         let number = [];
         while (number.length !== length) {
-            let random = Math.floor(Math.random() * 9) + 1
+            let random;
+            if (hexy === "true") {
+                random = Math.floor(Math.random() * 15) + 1
+            } else {
+                random = Math.floor(Math.random() * 9) + 1
+            }
             if (!number.includes(random)) {
                 number.push(random)
+            }
+        }
+        if (hexy === "true") {
+            for (let i = 0; i < length; i++) {
+                if (number[i] > 9) {
+                    switch (number[i]) {
+                        case 10:
+                            number[i] = "A"
+                            break
+                        case 11:
+                            number[i] = "B"
+                            break
+                        case 12:
+                            number[i] = "C"
+                            break
+                        case 13:
+                            number[i] = "D"
+                            break
+                        case 14:
+                            number[i] = "E"
+                            break
+                        case 15:
+                            number[i] = "F"
+                            break
+                    }
+                }
             }
         }
         table.push(number)
@@ -40,6 +72,23 @@ function playSound(name) {
 
 function color() {
     document.getElementById("bottom").style.backgroundColor = colors[Math.floor(Math.random() * 8)]
+}
+
+function togglehexa() {
+    if (document.getElementById("hexa").checked) {
+        document.getElementById("numbercount").setAttribute("max", "15")
+        document.getElementById("hexainfo").innerHTML = `- "Cyfry" 10 i wyzej sa w systemie hexadecymalnym (A,B,C,D,E,F)<br>`
+        document.getElementById("maxnum").innerText = "F"
+    } else {
+        document.getElementById("hexainfo").innerHTML = ``
+        document.getElementById("maxnum").innerText = "9"
+        if (document.getElementById("numbercount").value > 9) {
+            console.log("b")
+            document.getElementById("numbercount").setAttribute("value", "9")
+            showAmount(9, "numbersize")
+        }
+        document.getElementById("numbercount").setAttribute("max", "9")
+    }
 }
 
 function switchGamemode() {
@@ -62,7 +111,8 @@ function play() {
     gamemode = gamemodes[n1]
     gamemodeIndex = n1
     size = document.getElementById("numbercount").value
-    window.open("game.html?players=" + players + "_gamemode=" + gamemodeIndex + "_size=" + size)
+    hex = document.getElementById("hexa").checked
+    window.open("game.html?players=" + players + "_gamemode=" + gamemodeIndex + "_size=" + size + "_hex=" + hex)
 }
 
 function get(data) {
@@ -74,11 +124,13 @@ function get(data) {
             return parseInt(query[1].replace("gamemode=", ""))
         case "s":
             return parseInt(query[2].replace("size=", ""))
+        case "h":
+            return query[3].replace("hex=", "")
     }
 }
 
 function load() {
-    createNumber(get("s"), get("p"))
+    createNumber(get("s"), get("p"), get("h"))
     names = []
     for (let i = 0; i < get("p"); i++) {
         win.push(false)
@@ -99,8 +151,10 @@ function load() {
 }
 
 let regex = /^[a-zA-Z0-9]+$/
-let numberregex = /^\d+$/
+let numberregex = /^[0-9]+$/
 let numberregex2 = /^[1-9]+$/
+let hexregex = /^[0-9a-fA-F]+$/
+let hexregex2 = /^[1-9a-fA-F]+$/
 
 function validate(type) {
     if (!end) {
@@ -244,23 +298,36 @@ function submitnumber() {
             return;
         }
 
-        if (!numberregex.test(num)) {
-            log("red", "To nie jest liczba!")
-            return;
+        if (get("h") === "true") {
+            if (!hexregex.test(num)) {
+                log("red", "To nie jest liczba!")
+                return;
+            }
+
+            if (!hexregex2.test(num)) {
+                log("red", "Liczba nie moze zawierac zera!")
+                return;
+            }
+        } else {
+            if (!numberregex.test(num)) {
+                log("red", "To nie jest liczba!")
+                return;
+            }
+
+            if (!numberregex2.test(num)) {
+                log("red", "Liczba nie moze zawierac zera!")
+                return;
+            }
         }
 
-        if (!numberregex2.test(num)) {
-            log("red", "Liczba nie moze zawierac zera!")
-            return;
-        }
-
-        let numtable = num.split("")
+        let numtable = num.toUpperCase().split("")
+        num = num.toUpperCase()
         let points = 0
 
         let numbers = []
 
         for (let i = 0; i < numtable.length; i++) {
-            if (!numbers.includes(numtable[i])) {
+            if (!numbers.includes(numtable[i].toUpperCase())) {
                 numbers.push(numtable[i])
             } else {
                 log("red", "Cyfry nie moga sie powtarzac!")
