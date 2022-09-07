@@ -2,23 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>Kris</title>
     <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+    <link rel="icon" href="images/kris.png">
+    <script src="scripts/script.js"></script>
 </head>
 <body>
+
 <div id="background"></div>
+
 <video autoplay muted loop id="background-video">
     <source src="images/bg.mp4" type="video/mp4">
 </video>
-<div id="main">
+
+<div id="main" class="tooltip">
     <img id="kris" src="images/kris.png" width="256px" height="256px" style="border-radius: 50%; background-color: rgba(0,0,0,0.5)">
-    <a href="https://github.com/xKrisSx" target="_blank"><img id="git" src="images/git.svg" width="128px" height="128px" style="border-radius: 0%;"></a>
+    <span class="tooltiptext" id="myTooltip">Skopiowano</span>
 </div>
+
+<div id="media">
+    <a id="git" href="https://github.com/xKrisSx" target="_blank">
+        <img class="img" src="images/git.svg" width="100px" style="border-radius: 50%;">
+        <span class="text">Github</span>
+    </a>
+    <a id="yt" href="https://www.youtube.com/channel/UCkELcGLvB0EDsGPrY8lyOrw" target="_blank">
+        <img class="img" src="images/youtube.png" width="100px" style="border-radius: 0%;">
+        <span class="text" id>Youtube</span>
+    </a>
+    <div class="hoverable" id="dc" onclick="copy('Kris#1842')">
+        <img class="img" src="images/discord.png" height="100px" style="border-radius: 50%;">
+        <span class="text">Kris#1842</span>
+    </div>
+    <div class="hoverable" id="tg" onclick="copy('@not_kris')">
+        <img class="img" src="images/telegram.png" height="100px" style="border-radius: 50%;">
+        <span class="text">@not_kris</span>
+    </div>
+</div>
+
 <div id="liczby">
-    <a href="games/liczby/index.html" target="_blank">Gra w liczby</a>
+    <a href="games/liczby/index.html" target="_blank">Gra w liczby<img id="liczby-logo" src="images/liczby-logo.png"></a>
 </div>
 <div id="clicker">
-    <a href="games/clicker/index.html" target="_blank">Mine of Three Rules</a>
+    <a href="games/clicker/index.html" target="_blank">Mine of Three Rules<img id="clicker-logo" src="images/motr-logo.png"></a>
 </div>
+<div id="sudoku">
+    <a href="games/sudoku/index.html" target="_blank">Sudoku (WORK IN PROGRESS)<img id="sudoku-logo" src="images/sudoku-logo.png"></a>
+</div>
+
 </body>
 </html>
