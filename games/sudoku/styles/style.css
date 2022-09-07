@@ -1,0 +1,89 @@
+body, html {
+    font-size: xx-large;
+    height: 100%;
+    margin: 0;
+}
+
+#background {
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-size: cover;
+    object-fit: cover;
+    z-index: -50;
+    height: 100vh;
+    background-image: url("../images/paper.jpg");
+}
+
+input {
+    aspect-ratio: 1/1;
+    min-height: 38px;
+    height: calc(4vh - 2px);
+    width: calc(2vw - 13px);
+    position: fixed;
+    border: 2px solid #000000;
+    font-size: 24px;
+    padding-left: 13px;
+    background-image: url("../images/paper.jpg");
+}
+input:focus {
+    outline: none;
+}
+
+.row1 {
+    top: 30vh;
+}
+.row2 {
+    top: calc(30vh + 40px);
+}
+.row3 {
+    top: calc(30vh + 80px);
+}
+.row4 {
+    top: calc(30vh + 124px);
+}
+.row5 {
+    top: calc(30vh + 164px);
+}
+.row6 {
+    top: calc(30vh + 204px);
+}
+.row7 {
+    top: calc(30vh + 248px);
+}
+.row8 {
+    top: calc(30vh + 288px);
+}
+.row9 {
+    top: calc(30vh + 328px);
+}
+
+
+.col1 {
+    left: calc((100vw / 2) - 187px);
+}
+.col2 {
+    left: calc((100vw / 2) - 147px);
+}
+.col3 {
+    left: calc((100vw / 2) - 107px);
+}
+.col4 {
+    left: calc((100vw / 2) - 63px);
+}
+.col5 {
+    left: calc((100vw / 2) - 23px);
+}
+.col6 {
+    left: calc((100vw / 2) + 17px);
+}
+.col7 {
+    left: calc((100vw / 2) + 61px);
+}
+.col8 {
+    left: calc((100vw / 2) + 101px);
+}
+.col9 {
+    left: calc((100vw / 2) + 141px);
+}

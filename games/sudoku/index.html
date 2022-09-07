@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+</head>
+<body>
+
+SUDOKU
+<div id="background"></div>
+<button id="start" onclick="loadNumbers()">Start</button>
+<button id="end" onclick="end()">End</button>
+
+<!-- TOP ROW -->
+
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row1 col1 box1 b1"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row1 col2 box1 b2"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row1 col3 box1 b3">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row2 col1 box1 b4"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row2 col2 box1 b5"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row2 col3 box1 b6">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row3 col1 box1 b7"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row3 col2 box1 b8"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row3 col3 box1 b9">
+
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row1 col4 box2 b1"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row1 col5 box2 b2"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row1 col6 box2 b3">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row2 col4 box2 b4"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row2 col5 box2 b5"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row2 col6 box2 b6">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row3 col4 box2 b7"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row3 col5 box2 b8"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row3 col6 box2 b9">
+
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row1 col7 box3 b1"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row1 col8 box3 b2"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row1 col9 box3 b3">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row2 col7 box3 b4"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row2 col8 box3 b5"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row2 col9 box3 b6">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row3 col7 box3 b7"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row3 col8 box3 b8"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row3 col9 box3 b9">
+
+<!-- MID ROW -->
+
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row4 col1 box4 b1"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row4 col2 box4 b2"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row4 col3 box4 b3">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row5 col1 box4 b4"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row5 col2 box4 b5"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row5 col3 box4 b6">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row6 col1 box4 b7"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row6 col2 box4 b8"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row6 col3 box4 b9">
+
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row4 col4 box5 b1"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row4 col5 box5 b2"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row4 col6 box5 b3">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row5 col4 box5 b4"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row5 col5 box5 b5"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row5 col6 box5 b6">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row6 col4 box5 b7"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row6 col5 box5 b8"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row6 col6 box5 b9">
+
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row4 col7 box6 b1"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row4 col8 box6 b2"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row4 col9 box6 b3">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row5 col7 box6 b4"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row5 col8 box6 b5"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row5 col9 box6 b6">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row6 col7 box6 b7"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row6 col8 box6 b8"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row6 col9 box6 b9">
+
+<!-- BOT ROW -->
+
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row7 col1 box7 b1"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row7 col2 box7 b2"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row7 col3 box7 b3">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row8 col1 box7 b4"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row8 col2 box7 b5"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row8 col3 box7 b6">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row9 col1 box7 b7"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row9 col2 box7 b8"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row9 col3 box7 b9">
+
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row7 col4 box8 b1"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row7 col5 box8 b2"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row7 col6 box8 b3">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row8 col4 box8 b4"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row8 col5 box8 b5"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row8 col6 box8 b6">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row9 col4 box8 b7"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row9 col5 box8 b8"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row9 col6 box8 b9">
+
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row7 col7 box9 b1"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row7 col8 box9 b2"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row7 col9 box9 b3">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row8 col7 box9 b4"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row8 col8 box9 b5"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row8 col9 box9 b6">
+<input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row9 col7 box9 b7"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row9 col8 box9 b8"> <input type="text" oninput="checkInput(this.classList)" maxlength="1" class="row9 col9 box9 b9">
+</body>
+</html>
