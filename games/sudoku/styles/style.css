@@ -19,6 +19,7 @@ body, html {
 input {
     aspect-ratio: 1/1;
     min-height: 38px;
+    min-width: 25px;
     height: calc(4vh - 2px);
     width: calc(2vw - 13px);
     position: fixed;
