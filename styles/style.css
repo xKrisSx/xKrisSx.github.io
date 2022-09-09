@@ -31,6 +31,7 @@ body, html {
     margin-left: 10px;
     font-size: large;
     left: calc(50% + 160px);
+    padding: 5px;
 }
 
 #git {
@@ -57,6 +58,7 @@ body, html {
     color: #fff;
     font-size: 20px;
     z-index: 6;
+    padding: 5px;
 }
 #liczby-logo {
     position: fixed;
@@ -64,6 +66,7 @@ body, html {
     left: 70px;
     width: 125px;
     z-index: 6;
+    padding: 5px;
 }
 
 #clicker {
@@ -73,6 +76,7 @@ body, html {
     color: #fff;
     font-size: 20px;
     z-index: 6;
+    padding: 5px;
 }
 #clicker-logo {
     position: fixed;
@@ -80,6 +84,7 @@ body, html {
     left: 210px;
     width: 200px;
     z-index: 6;
+    padding: 5px;
 }
 
 #sudoku {
@@ -89,6 +94,7 @@ body, html {
     color: #fff;
     font-size: 20px;
     z-index: 6;
+    padding: 5px;
 }
 #sudoku-logo {
     position: fixed;
@@ -96,6 +102,7 @@ body, html {
     left: 425px;
     width: 80px;
     z-index: 6;
+    padding: 5px;
 }
 
 #background-video {
