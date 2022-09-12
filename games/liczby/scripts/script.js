@@ -156,6 +156,21 @@ let numberregex2 = /^[1-9]+$/
 let hexregex = /^[0-9a-fA-F]+$/
 let hexregex2 = /^[1-9a-fA-F]+$/
 
+function aaaa() {
+    if (Math.random() >= 0.985) {
+        document.getElementById("kris").src = "images/fishe.png"
+        document.getElementById("kris").style.borderRadius = "10%"
+        document.getElementById("gitimg").src = "images/bestia.gif"
+        document.getElementById("gitimg").style.borderRadius = "10%"
+        document.getElementById("ytimg").src = "images/moyai.gif"
+        document.getElementById("ytimg").style.borderRadius = "10%"
+        document.getElementById("dcimg").src = "images/moyai.gif"
+        document.getElementById("dcimg").style.borderRadius = "10%"
+        document.getElementById("tgimg").src = "images/moyai.gif"
+        document.getElementById("tgimg").style.borderRadius = "10%"
+    }
+}
+
 function validate(type) {
     if (!end) {
         let val = document.getElementById("nameInput").value
