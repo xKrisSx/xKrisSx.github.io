@@ -1,1 +1,118 @@
-(function(_0x37785f,_0x2e89ba){var _0x16831f=_0x8534,_0x488e1e=_0x37785f();while(!![]){try{var _0x215289=parseInt(_0x16831f(0x10b))/0x1+-parseInt(_0x16831f(0x116))/0x2+parseInt(_0x16831f(0x117))/0x3*(parseInt(_0x16831f(0x10c))/0x4)+-parseInt(_0x16831f(0x110))/0x5+parseInt(_0x16831f(0x107))/0x6+parseInt(_0x16831f(0x11d))/0x7+parseInt(_0x16831f(0x119))/0x8*(parseInt(_0x16831f(0x11c))/0x9);if(_0x215289===_0x2e89ba)break;else _0x488e1e['push'](_0x488e1e['shift']());}catch(_0x3e07e1){_0x488e1e['push'](_0x488e1e['shift']());}}}(_0xc27e,0x9dd1a));function _0x8534(_0x3589f8,_0x4c1860){var _0xc27ec2=_0xc27e();return _0x8534=function(_0x85342e,_0xcc5f32){_0x85342e=_0x85342e-0x107;var _0x1227fc=_0xc27ec2[_0x85342e];return _0x1227fc;},_0x8534(_0x3589f8,_0x4c1860);}function aaaa(){var _0x278b96=_0x8534;Math[_0x278b96(0x112)]()>=0.985&&(document[_0x278b96(0x11b)](_0x278b96(0x108))[_0x278b96(0x115)]=_0x278b96(0x10d),document[_0x278b96(0x11b)]('kris')['style']['borderRadius']='10%',document[_0x278b96(0x11b)](_0x278b96(0x111))['src']=_0x278b96(0x10a),document[_0x278b96(0x11b)](_0x278b96(0x111))[_0x278b96(0x11a)][_0x278b96(0x109)]=_0x278b96(0x113),document['getElementById']('ytimg')[_0x278b96(0x115)]=_0x278b96(0x118),document[_0x278b96(0x11b)](_0x278b96(0x10f))[_0x278b96(0x11a)][_0x278b96(0x109)]=_0x278b96(0x113),document['getElementById']('dcimg')['src']=_0x278b96(0x118),document[_0x278b96(0x11b)](_0x278b96(0x114))[_0x278b96(0x11a)]['borderRadius']=_0x278b96(0x113),document[_0x278b96(0x11b)](_0x278b96(0x10e))[_0x278b96(0x115)]=_0x278b96(0x118),document['getElementById']('tgimg')['style'][_0x278b96(0x109)]='10%');}function _0xc27e(){var _0xc53d14=['src','1396426MxHKNE','3282jfrPJv','images/3.gif','139584ygOSYr','style','getElementById','117RvIwOn','2915360GOqHgx','2926782DKHtAO','kris','borderRadius','images/1.gif','83138fdJQdi','4476Qovbrv','images/2.png','tgimg','ytimg','5468930rzlzUB','gitimg','random','10%','dcimg'];_0xc27e=function(){return _0xc53d14;};return _0xc27e();}
+let maxamount = 200
+let amount = 0
+let color = Math.floor(Math.random() * 3)
+let i = 0
+let colors  = [
+      // R-MIN, R-MAX, G-MIN, G-MAX, B-MIN, B-MAX
+    [
+        // RED
+        [ 150,   200,   0,     25,    0,     25  ],
+        [ 150,   255,   0,     50,    0,     50  ],
+        [ 200,   255,   0,     50,    0,     50  ],
+        [ 200,   255,   100,   200,   0,     50  ],
+        [ 200,   255,   150,   200,   0,     50  ]
+    ],
+
+    [
+        // GREEN
+        [ 0,     50,    150,   255,   0,     50  ],
+        [ 0,     50,    200,   255,   0,     50  ],
+        [ 0,     50,    200,   255,   100,   200 ],
+        [ 0,     50,    200,   255,   200,   255 ]
+    ],
+
+    [
+        // BLUE
+        [ 0,     50,    0,     50,    150,   255 ],
+        [ 0,     50,    0,     50,    200,   255 ],
+        [ 100,   200,   0,     50,    200,   255 ],
+        [ 200,   255,   0,     50,    200,   255 ],
+        [ 200,   255,   100,   150,   200,   255 ],
+        [ 0,     50,    100,   150,   200,   255 ]
+    ]
+]
+
+function background() {
+
+    setInterval(function remove() {
+        color = Math.floor(Math.random() * 3)
+        background()
+    }, 60000);
+
+    let angle = Math.floor(Math.random() * 360)
+
+    switch (color) {
+        case 0:
+            document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(255, 128, 0, 0.05) 0%, rgba(255, 0, 0, 0.05)  50%, rgba(0,0,0,0.05) 100%)"
+            break
+        case 1:
+            document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(89, 255, 67, 0.05) 0%, rgba(0, 128, 2, 0.05)  50%, rgba(0,0,0,0.05) 100%)"
+            break
+        case 2:
+            document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(0, 129, 255, 0.05) 0%, rgba(92, 0, 255, 0.05) 50%, rgba(0,0,0,0.05) 100%)"
+            break
+    }
+}
+
+function dots() {
+    while (amount < maxamount) {
+
+        let dot = document.createElement("div")
+
+        dot.classList.add("dot")
+
+        dot.style.borderRadius = "50%"
+
+        let random = Math.ceil((Math.random() * 100) + 50) / 8
+        dot.style.animation = "opacity " + random + "s ease-in, animX" + i + " " + random + "s ease-in, animY" + i + " " + random + "s ease-in"
+
+        let size = Math.floor(Math.random() * 500)
+        dot.style.width = Math.sqrt(size) + "px"
+        dot.style.height = Math.sqrt(size) + "px"
+
+
+        let childcolor = Math.floor(Math.random() * colors.length)
+        let red = Math.floor(Math.random() * (colors[color][childcolor][1] - colors[color][childcolor][0])) + colors[color][childcolor][0]
+        let green = Math.floor(Math.random() * (colors[color][childcolor][3] - colors[color][childcolor][2])) + colors[color][childcolor][2]
+        let blue = Math.floor(Math.random() * (colors[color][childcolor][5] - colors[color][childcolor][4])) + colors[color][childcolor][4]
+        dot.style.backgroundImage =
+            "radial-gradient(circle, rgba(255,255,255,1) 20%," +
+            "rgba(" + red + "," + green + "," + blue + "," + (Math.random() / 2 + 0.5) + ") 30%," +
+            "rgba(0,0,0,0) 100%)"
+
+        dot.style.translate = "translate(100px, 0px)"
+
+        dot.style.position = "fixed"
+        let left = Math.floor(Math.random() * 100)
+        dot.style.left = left + "vw"
+        let top  = Math.floor(Math.random() * 100)
+        dot.style.top = top + "vh"
+
+        document.styleSheets[0].insertRule("\
+			@keyframes animX" + i + " {\
+			    0%   { left: " + (left + (Math.floor(Math.random() * 60) - 30)) + "vw; }\
+			    100% { left: " + left + "vw;   }\
+			}"
+        );
+        document.styleSheets[0].insertRule("\
+			@keyframes animY" + i + " {\
+			    0%   { top: " + (top + (Math.floor(Math.random() * 60) - 30)) + "vh; }\
+			    100% { top: " + top + "vh;   }\
+			}"
+        );
+
+        dot.style.filter = "blur(2px)"
+
+        document.getElementById("body").appendChild(dot)
+
+        amount++
+        i++
+
+        setInterval(function remove() {
+            document.getElementById("body").removeChild(dot)
+            amount--
+            dots()
+        }, (random * 1000) + 500);
+    }
+}
+

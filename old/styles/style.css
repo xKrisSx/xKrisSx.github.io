@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "Panton";
+    src: url(../../fonts/Panton-LightCaps.otf) format("opentype");
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+    background-color: #000;
+    font-family: panton, serif;
+}
+
+#main {
+    font-size: 80px;
+    color: #fff;
+}
+
+#kris {
+    z-index: 5;
+    position: fixed;
+    top: calc(50% - 128px);
+    left: calc(50% - 128px);
+}
+#git, #yt, #tg, #dc {
+    z-index: 5;
+    position: fixed;
+    height: 100px;
+    width: 210px;
+    text-align: left;
+    margin-left: 10px;
+    font-size: large;
+    left: calc(50% + 160px);
+    padding: 5px;
+}
+
+#git {
+    top: calc(50% - 236px);
+}
+#yt {
+    top: calc(50% - 108px);
+}
+#tg {
+    top: calc(50% + 20px);
+}
+#dc {
+    top: calc(50% + 148px);
+}
+
+.img {
+    vertical-align: middle;
+}
+
+#liczby {
+    position: fixed;
+    top: calc(100% - 64px);
+    left: 70px;
+    color: #fff;
+    font-size: 20px;
+    z-index: 6;
+    padding: 5px;
+}
+#liczby-logo {
+    position: fixed;
+    top: calc(100% - 140px);
+    left: 70px;
+    width: 125px;
+    z-index: 6;
+    padding: 5px;
+}
+
+#clicker {
+    position: fixed;
+    top: calc(100% - 64px);
+    left: 210px;
+    color: #fff;
+    font-size: 20px;
+    z-index: 6;
+    padding: 5px;
+}
+#clicker-logo {
+    position: fixed;
+    top: calc(100% - 140px);
+    left: 210px;
+    width: 200px;
+    z-index: 6;
+    padding: 5px;
+}
+
+#sudoku {
+    position: fixed;
+    top: calc(100% - 64px);
+    left: 425px;
+    color: #fff;
+    font-size: 20px;
+    z-index: 6;
+    padding: 5px;
+}
+#sudoku-logo {
+    position: fixed;
+    top: calc(100% - 145px);
+    left: 425px;
+    width: 80px;
+    z-index: 6;
+    padding: 5px;
+}
+
+#background-video {
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    filter: blur(3px);
+    z-index: 1;
+}
+
+#background {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+a, .hoverable {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+a:visited {
+    color: #bbb;
+}
+
+a:hover, .hoverable:hover {
+    background-color: rgba(128,128,128,0.5);
+    color: #fff;
+    cursor: pointer;
+}

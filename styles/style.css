@@ -11,17 +11,81 @@ body, html {
     font-family: panton, serif;
 }
 
+#gradient {
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-size: cover;
+    object-fit: cover;
+    height: 100vh;
+    animation: load 60s ease-in-out infinite;
+    opacity: 0;
+    z-index: 1;
+    transition: all 5s ease-out;
+}
+
+.dot {
+    opacity: 0;
+    z-index: 2;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes opacity {
+    35% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
+
+/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
+
 #main {
-    font-size: 80px;
+    position: fixed;
+    top: 10vh;
+    left: 5vw;
+    width: 90vw;
+    height: 80vh;
+    text-align: center;
     color: #fff;
+    z-index: 3;
 }
 
 #kris {
+    border-radius: 0;
     z-index: 5;
     position: fixed;
     top: calc(50% - 128px);
     left: calc(50% - 128px);
 }
+#kristekst {
+    font-size: large;
+    position: fixed;
+    top: calc(50% + 140px);
+    left: calc(50% - 75px);
+}
+
 #git, #yt, #tg, #dc {
     z-index: 5;
     position: fixed;
@@ -49,6 +113,21 @@ body, html {
 
 .img {
     vertical-align: middle;
+}
+
+a, .hoverable {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+a:visited {
+    color: #bbb;
+}
+
+a:hover, .hoverable:hover {
+    background-color: rgba(128,128,128,0.5);
+    color: #fff;
+    cursor: pointer;
 }
 
 #liczby {
@@ -103,39 +182,4 @@ body, html {
     width: 80px;
     z-index: 6;
     padding: 5px;
-}
-
-#background-video {
-    position: fixed;
-    left: 0;
-    top: 0;
-    min-width: 100%;
-    min-height: 100%;
-    filter: blur(3px);
-    z-index: 1;
-}
-
-#background {
-    position: fixed;
-    min-width: 100%;
-    min-height: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
-}
-
-a, .hoverable {
-    color: #bbb;
-    text-decoration: none;
-    transition: 0.3s ease-in-out;
-}
-a:visited {
-    color: #bbb;
-}
-
-a:hover, .hoverable:hover {
-    background-color: rgba(128,128,128,0.5);
-    color: #fff;
-    cursor: pointer;
 }
