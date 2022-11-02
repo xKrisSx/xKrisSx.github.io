@@ -1,4 +1,4 @@
-let maxamount = 200
+let maxamount = 120
 let amount = 0
 let color = Math.floor(Math.random() * 3)
 let i = 0
