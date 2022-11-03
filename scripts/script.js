@@ -42,7 +42,7 @@ let colors  = [
 let color = Math.floor(Math.random() * colors.length)
 
 if (!window.navigator.userAgent.toLowerCase().includes("windows")) {
-    maxamount = 20
+    maxamount = 10
 
     /*
                  J E B A Ć    L I N U X A
