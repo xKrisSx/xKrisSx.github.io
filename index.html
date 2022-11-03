@@ -7,7 +7,7 @@
     <script src="scripts/script.js" defer></script>
     <link rel="icon" href="images/kris.png">
 </head>
-<body id="body" onload="dots(); background()">
+<body id="body" onload="dots(); background(); interval()">
 <div id="gradient"></div>
 <div id="main">
     <img id="kris" src="images/kris.png" width="256px" height="256px" style="border-radius: 50%; background-color: rgba(0,0,0,0.5)">
@@ -39,6 +39,13 @@
     </div>
     <div id="sudoku">
         <a href="games/sudoku/index.html" target="_blank">Sudoku (WORK IN PROGRESS)<img id="sudoku-logo" src="images/sudoku-logo.png"></a>
+    </div>
+    <div id="kolory">
+        <div class="blur" onclick="changeColor('random')"><img class="colorblock active" id="random" src="images/random.png"> RANDOM</div>
+        <div class="blur" onclick="changeColor('0')"><img class="colorblock" id="red" src="images/red.png"> RED</div>
+        <div class="blur" onclick="changeColor('1')"><img class="colorblock" id="green" src="images/green.png"> GREEN</div>
+        <div class="blur" onclick="changeColor('2')"><img class="colorblock" id="blue" src="images/blue.png"> BLUE</div>
+        <div class="blur" onclick="changeColor('3')"><img class="colorblock" id="yellow" src="images/yellow.png"> YELLOW</div>
     </div>
 </div>
 </body>

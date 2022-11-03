@@ -183,3 +183,48 @@ a:hover, .hoverable:hover {
     z-index: 6;
     padding: 5px;
 }
+
+.colorblock {
+    height: 64px;
+    width: 64px;
+    background-color: rgba(0,0,0,0.9);
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    border: 2px solid #0f0f0f;
+}
+
+.colorblock:hover {
+    filter: blur(0);
+    transition: all 0.2s ease-in-out, height 0.05s ease-in-out, width 0.05s ease-in-out;
+}
+
+
+.active {
+    border: 2px solid #0faf0f;
+}
+
+#kolory {
+    position: fixed;
+    left: -32px;
+    top: calc(50% - 217px);
+    transition: all 0.25s ease-in-out;
+}
+
+#kolory:hover {
+    left: 0px;
+}
+
+.blur {
+    filter: blur(3px);
+    color: transparent;
+    transition: all 0.25s ease-in-out;
+    text-shadow: 0 0 2px rgba(255,255,255,0.5);
+}
+
+.blur:hover {
+    filter: blur(0px);
+    color: #ddd;
+    text-shadow: none;
+    cursor: pointer;
+}

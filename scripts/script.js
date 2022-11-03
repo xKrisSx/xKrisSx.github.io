@@ -1,9 +1,9 @@
-let maxamount = 200
+let random = true
+let maxamount = 125
 let amount = 0
-let color = Math.floor(Math.random() * 3)
 let i = 0
 let colors  = [
-      // R-MIN, R-MAX, G-MIN, G-MAX, B-MIN, B-MAX
+    // R-MIN, R-MAX, G-MIN, G-MAX, B-MIN, B-MAX
     [
         // RED
         [ 150,   200,   0,     25,    0,     25  ],
@@ -29,15 +29,51 @@ let colors  = [
         [ 200,   255,   0,     50,    200,   255 ],
         [ 200,   255,   100,   150,   200,   255 ],
         [ 0,     50,    100,   150,   200,   255 ]
+    ],
+
+    [
+        // YELLOW
+        [ 200,   255,   100,   200,   0,     50  ],
+        [ 200,   255,   150,   200,   0,     50  ],
+        [ 200,   255,   200,   255,   0,     50  ],
+        [ 150,   255,   150,   255,   0,     50  ]
     ]
 ]
+let color = Math.floor(Math.random() * colors.length)
 
-function background() {
+function changeColor(c) {
+    if (c === "random") {
+        document.getElementsByClassName("active")[0].classList.remove("active")
+        document.getElementsByClassName("colorblock")[0].classList.add("active")
+        random = true
+    } else {
+        document.getElementsByClassName("active")[0].classList.remove("active")
+        document.getElementsByClassName("colorblock")[Number(c) + 1].classList.add("active")
+        random = false
+        color = Number(c)
+    }
+    background()
+}
 
+function interval() {
     setInterval(function remove() {
-        color = Math.floor(Math.random() * 3)
+        if (random) {
+            let newColor = Math.floor(Math.random() * colors.length)
+            if (color === newColor) {
+                if (color - 1 === colors.length) {
+                    color = 0
+                } else {
+                    color++
+                }
+            } else {
+                color = newColor
+            }
+        }
         background()
     }, 60000);
+}
+
+function background() {
 
     let angle = Math.floor(Math.random() * 360)
 
@@ -50,6 +86,9 @@ function background() {
             break
         case 2:
             document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(0, 129, 255, 0.05) 0%, rgba(92, 0, 255, 0.05) 50%, rgba(0,0,0,0.05) 100%)"
+            break
+        case 3:
+            document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(255, 145, 0, 0.05) 0%, rgba(255, 214, 0, 0.05) 50%, rgba(0,0,0,0.05) 100%)"
             break
     }
 }
@@ -102,7 +141,7 @@ function dots() {
         );
 
         dot.style.filter = "blur(2px)"
-
+        if (1 !== 1) { alert("a") }
         document.getElementById("body").appendChild(dot)
 
         amount++
@@ -110,6 +149,7 @@ function dots() {
 
         setInterval(function remove() {
             document.getElementById("body").removeChild(dot)
+            dot.remove()
             amount--
             dots()
         }, (random * 1000) + 500);
