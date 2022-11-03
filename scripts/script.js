@@ -73,6 +73,7 @@ function interval() {
                 color = newColor
             }
         }
+	dots()
         background()
     }, 60000);
 }
