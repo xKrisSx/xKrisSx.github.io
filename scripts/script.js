@@ -41,6 +41,10 @@ let colors  = [
 ]
 let color = Math.floor(Math.random() * colors.length)
 
+if (!window.navigator.userAgent.toLowerCase().includes("windows")) {
+    maxamount = 25
+}
+
 function changeColor(c) {
     if (c === "random") {
         document.getElementsByClassName("active")[0].classList.remove("active")
