@@ -34,10 +34,10 @@ body, html {
     0% {
         opacity: 0;
     }
-    5% {
+    3% {
         opacity: 1;
     }
-    95% {
+    97% {
         opacity: 1;
     }
     100% {
