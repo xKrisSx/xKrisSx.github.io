@@ -12,8 +12,9 @@ body, html {
     height: 100%;
     margin: 0;
     scroll-behavior: smooth;
-    background-color: #000;
+    background-image: url("../images/bg/0.jpg");
     font-family: panton, serif;
+    transition: all 2s ease-out;
 }
 
 #gradient {
@@ -24,7 +25,7 @@ body, html {
     background-size: cover;
     object-fit: cover;
     height: 100vh;
-    animation: load 60s ease-in-out infinite;
+    animation: load 15s ease-in-out infinite;
     opacity: 0;
     z-index: 1;
     transition: all 5s ease-out;
@@ -39,10 +40,10 @@ body, html {
     0% {
         opacity: 0;
     }
-    3% {
+    10% {
         opacity: 1;
     }
-    97% {
+    90% {
         opacity: 1;
     }
     100% {
@@ -194,8 +195,8 @@ a:hover, .hoverable:hover {
 }
 
 .colorblock {
-    height: 64px;
-    width: 64px;
+    height: 48px;
+    width: 48px;
     background-color: rgba(0,0,0,0.9);
     text-align: center;
     display: table-cell;
@@ -215,8 +216,8 @@ a:hover, .hoverable:hover {
 
 #kolory {
     position: fixed;
-    left: -32px;
-    top: calc(50% - 261px);
+    left: -24px;
+    top: calc(50% - 234px);
     transition: all 0.25s ease-in-out;
 }
 
@@ -229,11 +230,11 @@ a:hover, .hoverable:hover {
     color: transparent;
     transition: all 0.25s ease-in-out;
     text-shadow: 0 0 2px rgba(255,255,255,0.5);
+    font-size: small;
 }
 
 .blur:hover {
     filter: blur(0px);
     color: #ddd;
     text-shadow: none;
-    cursor: pointer;
 }

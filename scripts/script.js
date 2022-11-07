@@ -1,7 +1,9 @@
+let enabled = true
 let random = true
-let maxamount = 125
+let maxamount = 75
 let amount = 0
 let i = 0
+let bg = Math.floor(Math.random() * 6) + 1
 let colors  = [
     // R-MIN, R-MAX, G-MIN, G-MAX, B-MIN, B-MAX
     [
@@ -41,70 +43,102 @@ let colors  = [
 
     [
         // GRAY
-        [ 100, 200, 100, 200, 100, 200 ]
+        [ 100, 200, 2, 1, 3, 7 ]
     ]
 ]
 let color = Math.floor(Math.random() * colors.length)
 
-if (!window.navigator.userAgent.toLowerCase().includes("windows")) {
-    maxamount = 10
 
-    /*
-                 J E B A Ć    L I N U X A
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠶⠶⣦⣄⣀⣀⡀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣻⠋⠂⠀⠀⠙⠛⠒⠓⠒⠛⠓⠒⣒⡚⠽⠿⠿⠶⢆⢀⣀⣀⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠉⠀⠀⠐⠤⢙⡻⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⢧⡀⠀⠀⠀⠀⠀⡀⠀⣹⣮⣻⢷⣄⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⣼⢯⠔⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠐⢤⣄⠳⠀⠹⣿⡊⠳⡽⢷⣄⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⣞⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠸⡁⠀⠀⣿⣷⠀⠌⢦⢻⢤⠀⠀⠀
-⠀⠀⠀⠀⠀⠘⣿⢰⣬⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⡁⠠⡀⠀⣴⣿⣿⠀⠀⠈⢣⠻⣇⠀⠀
-⠀⠀⠀⠀⠀⢸⡏⠸⠟⠁⠀⠀⠀⠀⡠⣴⣶⣶⣶⣶⣶⡶⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⣿⠃⠀⠀⠀⠀⢳⢹⣷⡀
-⠀⠀⠀⠀⢀⣈⡇⠀⠀⣀⠀⠀⣀⢈⠋⠁⠀⠀⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⢣⠹⣧
-⠀⠀⢀⣴⠟⠉⢀⣤⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⣿
-⠀⢠⣿⣋⣠⣶⣿⣿⠧⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠋
-⠀⡞⣵⣿⣿⣿⣿⣿⡦⠀⠀⠀⠀⠄⠀⠀⣀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠏⠀⠀
-⠰⣧⠻⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠉⢀⣰⣿⣿⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠟⠀⠀⠀⠀
-⠀⠙⢷⣤⣙⠿⠿⠿⠦⠤⠤⠁⠀⠰⠟⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡾⠋⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠉⠓⠫⠿⠟⢿⣇⢀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠟⠁⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣶⠻⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠘⣟⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠤⢤⣴⣾⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢶⡦⢤⣶⣶⣶⠲⠶⠿⠛⠛⠉⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-     */
+function enable() {
+    if (!window.navigator.userAgent.toLowerCase().includes("windows")) {
+        maxamount = 10
+
+        /*
+                     J E B A Ć    L I N U X A
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠶⠶⣦⣄⣀⣀⡀⠀⢀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣻⠋⠂⠀⠀⠙⠛⠒⠓⠒⠛⠓⠒⣒⡚⠽⠿⠿⠶⢆⢀⣀⣀⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠉⠀⠀⠐⠤⢙⡻⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⢧⡀⠀⠀⠀⠀⠀⡀⠀⣹⣮⣻⢷⣄⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⣼⢯⠔⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠐⢤⣄⠳⠀⠹⣿⡊⠳⡽⢷⣄⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⣞⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠸⡁⠀⠀⣿⣷⠀⠌⢦⢻⢤⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠘⣿⢰⣬⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⡁⠠⡀⠀⣴⣿⣿⠀⠀⠈⢣⠻⣇⠀⠀
+    ⠀⠀⠀⠀⠀⢸⡏⠸⠟⠁⠀⠀⠀⠀⡠⣴⣶⣶⣶⣶⣶⡶⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⣿⠃⠀⠀⠀⠀⢳⢹⣷⡀
+    ⠀⠀⠀⠀⢀⣈⡇⠀⠀⣀⠀⠀⣀⢈⠋⠁⠀⠀⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⢣⠹⣧
+    ⠀⠀⢀⣴⠟⠉⢀⣤⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⣿
+    ⠀⢠⣿⣋⣠⣶⣿⣿⠧⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠋
+    ⠀⡞⣵⣿⣿⣿⣿⣿⡦⠀⠀⠀⠀⠄⠀⠀⣀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠏⠀⠀
+    ⠰⣧⠻⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠉⢀⣰⣿⣿⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠟⠀⠀⠀⠀
+    ⠀⠙⢷⣤⣙⠿⠿⠿⠦⠤⠤⠁⠀⠰⠟⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡾⠋⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠉⠓⠫⠿⠟⢿⣇⢀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠟⠁⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣶⠻⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠘⣟⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠤⢤⣴⣾⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢶⡦⢤⣶⣶⣶⠲⠶⠿⠛⠛⠉⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+         */
+    } else {
+        maxamount = 75
+    }
 }
 
 function changeColor(c) {
-    if (c === "random") {
-        document.getElementsByClassName("active")[0].classList.remove("active")
-        document.getElementsByClassName("colorblock")[0].classList.add("active")
-        random = true
+    if (c !== "off") {
+        if (c === "random") {
+            document.getElementsByClassName("active")[0].classList.remove("active")
+            document.getElementsByClassName("colorblock")[0].classList.add("active")
+            random = true
+        } else {
+            document.getElementsByClassName("active")[0].classList.remove("active")
+            document.getElementsByClassName("colorblock")[Number(c) + 1].classList.add("active")
+            random = false
+            color = Number(c)
+        }
+        if (!enabled) {
+            enabled = true
+            document.getElementById("body").style.backgroundImage = "url('images/bg/0.jpg')"
+            enable()
+            dots()
+        }
+        background()
     } else {
+        maxamount = 0
         document.getElementsByClassName("active")[0].classList.remove("active")
-        document.getElementsByClassName("colorblock")[Number(c) + 1].classList.add("active")
-        random = false
-        color = Number(c)
+        document.getElementsByClassName("colorblock")[6].classList.add("active")
+        enabled = false
     }
-    background()
 }
 
 function interval() {
     setInterval(function remove() {
-        if (random) {
-            let newColor = Math.floor(Math.random() * colors.length)
-            if (color === newColor) {
-                if (color - 1 === colors.length) {
-                    color = 0
+        if (enabled) {
+            if (random) {
+                let newColor = Math.floor(Math.random() * colors.length)
+                if (color === newColor) {
+                    if (color - 1 === colors.length) {
+                        color = 0
+                    } else {
+                        color++
+                    }
                 } else {
-                    color++
+                    color = newColor
+                }
+            }
+            dots()
+            background()
+        } else {
+            let newBg = Math.floor(Math.random() * 6) + 1
+            if (bg === newBg) {
+                if (bg === 6) {
+                    bg = 1
+                } else {
+                    bg++
                 }
             } else {
-                color = newColor
+                bg = newBg
             }
+            document.getElementById("body").style.backgroundImage = "url('images/bg/" + bg + ".jpg')"
         }
-	    dots()
-        background()
-    }, 60000);
+    }, 15000);
 }
 
 function background() {
@@ -125,13 +159,13 @@ function background() {
             document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(255, 145, 0, 0.05) 0%, rgba(255, 214, 0, 0.05) 50%, rgba(0,0,0,0.05) 100%)"
             break
         case 4:
-            document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(255, 255, 255, 0.05) 0%, rgba(128, 128, 128, 0.05) 50%, rgba(0,0,0,0.05) 100%)"
+            document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(255, 255, 255, 0.125) 0%, rgba(128, 128, 128, 0.05) 50%, rgba(0,0,0,0.05) 100%)"
             break
     }
 }
 
 function dots() {
-    while (amount < maxamount) {
+    while (amount < maxamount && enabled) {
 
         let dot = document.createElement("div")
 
@@ -139,7 +173,7 @@ function dots() {
 
         dot.style.borderRadius = "50%"
 
-        let random = Math.ceil((Math.random() * 100) + 50) / 8
+        let random = Math.ceil((Math.random() * 100) + 50) / 11
         dot.style.animation = "opacity " + random + "s ease-in, animX" + i + " " + random + "s ease-in, animY" + i + " " + random + "s ease-in"
 
         let size = Math.floor(Math.random() * 500)
