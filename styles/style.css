@@ -216,7 +216,7 @@ a:hover, .hoverable:hover {
 #kolory {
     position: fixed;
     left: -32px;
-    top: calc(50% - 217px);
+    top: calc(50% - 261px);
     transition: all 0.25s ease-in-out;
 }
 

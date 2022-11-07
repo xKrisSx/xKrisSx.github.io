@@ -37,6 +37,11 @@ let colors  = [
         [ 200,   255,   150,   200,   0,     50  ],
         [ 200,   255,   200,   255,   0,     50  ],
         [ 150,   255,   150,   255,   0,     50  ]
+    ],
+
+    [
+        // GRAY
+        [ 100, 200, 100, 200, 100, 200 ]
     ]
 ]
 let color = Math.floor(Math.random() * colors.length)
@@ -119,6 +124,9 @@ function background() {
         case 3:
             document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(255, 145, 0, 0.05) 0%, rgba(255, 214, 0, 0.05) 50%, rgba(0,0,0,0.05) 100%)"
             break
+        case 4:
+            document.getElementById("gradient").style.backgroundImage = "linear-gradient(" + angle + "deg, rgba(255, 255, 255, 0.05) 0%, rgba(128, 128, 128, 0.05) 50%, rgba(0,0,0,0.05) 100%)"
+            break
     }
 }
 
@@ -139,10 +147,21 @@ function dots() {
         dot.style.height = Math.sqrt(size) + "px"
 
 
-        let childcolor = Math.floor(Math.random() * colors.length)
-        let red = Math.floor(Math.random() * (colors[color][childcolor][1] - colors[color][childcolor][0])) + colors[color][childcolor][0]
-        let green = Math.floor(Math.random() * (colors[color][childcolor][3] - colors[color][childcolor][2])) + colors[color][childcolor][2]
-        let blue = Math.floor(Math.random() * (colors[color][childcolor][5] - colors[color][childcolor][4])) + colors[color][childcolor][4]
+        let childcolor = Math.floor(Math.random() * colors[color].length)
+        let red
+        let green
+        let blue
+        if (color === 4) {
+            let x = Math.floor(Math.random() * (colors[color][childcolor][1] - colors[color][childcolor][0])) + colors[color][childcolor][0]
+            red = x
+            green = x
+            blue = x
+        } else {
+            red = Math.floor(Math.random() * (colors[color][childcolor][1] - colors[color][childcolor][0])) + colors[color][childcolor][0]
+            green = Math.floor(Math.random() * (colors[color][childcolor][3] - colors[color][childcolor][2])) + colors[color][childcolor][2]
+            blue = Math.floor(Math.random() * (colors[color][childcolor][5] - colors[color][childcolor][4])) + colors[color][childcolor][4]
+        }
+
         dot.style.backgroundImage =
             "radial-gradient(circle, rgba(255,255,255,1) 20%," +
             "rgba(" + red + "," + green + "," + blue + "," + (Math.random() / 2 + 0.5) + ") 30%," +
