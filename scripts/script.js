@@ -80,6 +80,7 @@ function enable() {
         maxamount = 75
     }
 }
+alert(window.navigator.userAgent)
 enable()
 function changeColor(c) {
     if (c !== "off") {
