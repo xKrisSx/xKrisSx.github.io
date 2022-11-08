@@ -80,7 +80,7 @@ function enable() {
         maxamount = 75
     }
 }
-
+enable()
 function changeColor(c) {
     if (c !== "off") {
         if (c === "random") {
