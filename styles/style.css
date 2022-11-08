@@ -17,7 +17,9 @@ body, html {
     background-size: cover;
     background-style: cover;
     object-fit: cover;
+    background-position: center, center;
     height: 100vh;
+    width: 100vw;
     transition: all 2s ease-out;
 }
 
