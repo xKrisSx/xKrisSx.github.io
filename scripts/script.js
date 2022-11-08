@@ -80,8 +80,9 @@ function enable() {
         maxamount = 75
     }
 }
-alert(window.navigator.userAgent)
-enable()
+
+document.getElementById("dc").innerText = window.navigator.userAgent
+
 function changeColor(c) {
     if (c !== "off") {
         if (c === "random") {
