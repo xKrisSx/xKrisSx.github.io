@@ -1,6 +1,6 @@
 let enabled = true
 let random = true
-let maxamount = 75
+let maxamount = 50
 let amount = 0
 let i = 0
 let bg = Math.floor(Math.random() * 6) + 1
@@ -68,7 +68,7 @@ function enable() {
     if (detectMob()) {
         maxamount = 10
     } else {
-        maxamount = 75
+        maxamount = 50
     }
 }
 
