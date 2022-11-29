@@ -220,8 +220,8 @@ function dots() {
         amount++
         i++
 
-        setInterval(function remove() {
-            document.getElementById("body").removeChild(dot)
+        setTimeout(function remove() {
+           // document.getElementById("body").removeChild(dot)
             dot.remove()
             amount--
             dots()
