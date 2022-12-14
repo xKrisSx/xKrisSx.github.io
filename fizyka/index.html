@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doppler</title>
+    <script src="script.js"></script>
+    <script src="../scripts/script.js"></script>
+    <link rel="stylesheet" href="../styles/style.css" type="text/css"/>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body id="body" onload="enable(); dots(); background(); interval()">
+    <div id="gradient"></div>
+    <div id="main">
+        <span class="inputText">Wprowadzanie danych:</span>
+        <div id="left">
+            [Hz] <input type="text" id="f0" class="input" maxlength="6"><br>
+            [Hz] <input type="text" id="fx" class="input" maxlength="6"><br>
+            [Hz] <input type="text" id="f1" class="input" maxlength="6"><br>
+            [Hz] <input type="text" id="f2" class="input" maxlength="6"><br>
+            <div>
+                <input type="radio" name="v0unit" value="m/s" checked>[m/s]
+                <input type="radio" name="v0unit" value="km/h">[km/h]
+                <input type="text" id="v0" class="input" maxlength="6">
+            </div><br>
+            <div id="top1">
+                <input type="radio" name="v1unit" value="m/s" checked>[m/s]
+                <input type="radio" name="v1unit" value="km/h">[km/h]
+                <input type="text" id="v1" class="input" maxlength="6">
+            </div><br>
+            <div id="top2">
+                <input type="radio" name="v2unit" value="m/s" checked>[m/s]
+                <input type="radio" name="v2unit" value="km/h">[km/h]
+                <input type="text" id="v2" class="input" maxlength="6">
+            </div>
+        </div>
+        <div id="right">
+            f0 - Częstotliwość wysyłana<br>
+            fx - Częstotliwość odbierana - niewiadoma<br>
+            f1 - Częstotliwość odbierana - zbliża się<br>
+            f2 - Częstotliwość odbierana - oddala się<br>
+            v0 - Prędkość fali - domyślnie 340m/s [w powietrzu]<br>
+            v1 - Prędkość obiektu odbierającego fale<br>
+            v2 - Prędkość obiektu wysyłającego fale<br>
+        </div>
+
+        <div id="output">
+            <span class="inputText">
+                <div id="button" onclick="calc()">
+                    Policz
+                </div>
+            </span>
+
+            <div id="left1">
+                Wyliczono:<br>
+                Częstotliwość wysyłana = <br>
+                Częstotliwość odbierana (obiekty się zbliżają) = <br>
+                Częstotliwość odbierana (obiekty się oddalają) = <br>
+                Prędkość fali = <br>
+                Prędkość obiektu odbierającego fale = <br>
+                Prędkość obiektu wysyłającego fale = <br>
+                Różnica prędkości = <br>
+                Obiekty się: <br>
+            </div>
+            <div id="right1">
+                <span id="calc">-</span><br>
+                <span id="f0out">??</span><br>
+                <span id="f1out">??</span><br>
+                <span id="f2out">??</span><br>
+                <span id="v0out">??</span><br>
+                <span id="v1out">??</span><br>
+                <span id="v2out">??</span><br>
+                <span id="vdiffout">??</span><br>
+                <span id="obdiff">??</span>
+            </div>
+        </div>
+    </div>
+    <div id="kolory">
+        <div class="blur" onclick="changeColor('random')"><img class="colorblock active" id="random" src="../images/buttons/random.png"> RANDOM</div>
+        <div class="blur" onclick="changeColor('0')"><img class="colorblock" id="red" src="../images/buttons/red.png"> RED</div>
+        <div class="blur" onclick="changeColor('1')"><img class="colorblock" id="green" src="../images/buttons/green.png"> GREEN</div>
+        <div class="blur" onclick="changeColor('2')"><img class="colorblock" id="blue" src="../images/buttons/blue.png"> BLUE</div>
+        <div class="blur" onclick="changeColor('3')"><img class="colorblock" id="yellow" src="../images/buttons/yellow.png"> YELLOW</div>
+        <div class="blur" onclick="changeColor('4')"><img class="colorblock" id="gray" src="../images/buttons/gray.png"> GRAY</div>
+        <div class="blur" onclick="changeColor('off')"><img class="colorblock" id="off" src="../images/buttons/off.png"> OFF</div>
+    </div>
+</body>
+</html>

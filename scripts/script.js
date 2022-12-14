@@ -1,6 +1,6 @@
 let enabled = true
 let random = true
-let maxamount = 75
+let maxamount = 10
 let amount = 0
 let i = 0
 let bg = Math.floor(Math.random() * 6) + 1
@@ -68,7 +68,7 @@ function enable() {
     if (detectMob()) {
         maxamount = 10
     } else {
-        maxamount = 75
+        maxamount = 50
     }
 }
 
@@ -127,7 +127,11 @@ function interval() {
             } else {
                 bg = newBg
             }
-            document.getElementById("body").style.backgroundImage = "url('images/bg/" + bg + ".jpg')"
+            if (document.title === "Doppler") {
+                document.getElementById("body").style.backgroundImage = "url('../images/bg/" + bg + ".jpg')"
+            } else {
+                document.getElementById("body").style.backgroundImage = "url('images/bg/" + bg + ".jpg')"
+            }
         }
     }, 15000);
 }
@@ -154,6 +158,8 @@ function background() {
             break
     }
 }
+
+
 
 function dots() {
     while (amount < maxamount && enabled) {
@@ -214,7 +220,6 @@ function dots() {
         );
 
         dot.style.filter = "blur(2px)"
-        if (1 !== 1) { alert("a") }
         document.getElementById("body").appendChild(dot)
 
         amount++
@@ -222,7 +227,6 @@ function dots() {
 
         setInterval(function remove() {
             document.getElementById("body").removeChild(dot)
-            dot.remove()
             amount--
             dots()
         }, (random * 1000) + 500);

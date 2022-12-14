@@ -1,0 +1,87 @@
+body {
+    font-size: 18px;
+    line-height: 36px;
+}
+
+#main {
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    position: fixed;
+    left: 0;
+}
+
+.inputText {
+    font-size: xxx-large;
+}
+
+input[type="text"] {
+    background-color: rgba(0,0,0,0);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    width: 50px;
+    height: 22px;
+}
+
+#top1 {
+    margin: -36px 0;
+}
+
+#left {
+    position: fixed;
+    top: 15vh;
+    left: 0;
+    width: 47.5vw;
+    text-align: right;
+}
+
+#right {
+    position: fixed;
+    top: 15vh;
+    left: 52.5vw;
+    width: 47.5vw;
+    text-align: left;
+}
+
+#left1 {
+    position: fixed;
+    top: 54vh;
+    left: 0;
+    width: 47.5vw;
+    text-align: right;
+}
+
+#right1 {
+    position: fixed;
+    top: 54vh;
+    left: 52.5vw;
+    width: 47.5vw;
+    text-align: left;
+}
+
+#output {
+    position: fixed;
+    top: 54vh;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+}
+
+#button {
+    width: 160px;
+    height: 50px;
+    transition: 0.3s ease-in-out;
+    vertical-align: center;
+    text-align: center;
+    position: fixed;
+    left: calc(50% - 80px);
+    top: 47.5vh;
+    cursor: pointer;
+}
+
+#kolory {
+    line-height: normal;
+    z-index: 11;
+    text-align: center;
+}
