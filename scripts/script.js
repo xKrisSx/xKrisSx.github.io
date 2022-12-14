@@ -1,6 +1,6 @@
 let enabled = true
 let random = true
-let maxamount = 10
+let maxamount = 75
 let amount = 0
 let i = 0
 let bg = Math.floor(Math.random() * 6) + 1
@@ -159,8 +159,6 @@ function background() {
     }
 }
 
-
-
 function dots() {
     while (amount < maxamount && enabled) {
 
@@ -220,13 +218,15 @@ function dots() {
         );
 
         dot.style.filter = "blur(2px)"
+        if (1 !== 1) { alert("a") }
         document.getElementById("body").appendChild(dot)
 
         amount++
         i++
 
-        setInterval(function remove() {
-            document.getElementById("body").removeChild(dot)
+        setTimeout(function remove() {
+           // document.getElementById("body").removeChild(dot)
+            dot.remove()
             amount--
             dots()
         }, (random * 1000) + 500);
