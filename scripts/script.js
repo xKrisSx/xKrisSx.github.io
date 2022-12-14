@@ -43,7 +43,8 @@ let colors  = [
 
     [
         // GRAY
-        [ 100, 200, 2, 1, 3, 7 ]
+        [ 100, 200, 2, 1, 3, 7 ],
+        [ 0,   255, 2, 1, 3, 7 ]
     ]
 ]
 let color = Math.floor(Math.random() * colors.length)
